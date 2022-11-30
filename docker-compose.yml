@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+
+  db: # service name
+    container_name: mongo # container name
+    image: mongo:latest # use mongo image
+    ports:
+      - "27017:27017" # expose port 5433 on host to port 5432 on container
+    volumes:
+    - mongo_db_container:/data/db
+    environment:
+      - MONGO_PASSWORD=${DB_PASSWORD} # set password for postgres user
+      - MONGO_USER=${DB_USER} # set username for postgres user
+      - MONGO_DB=${DB_NAME} # set database name
+
+
+volumes:
+    data: {}
+
+
+    
+
+
+
